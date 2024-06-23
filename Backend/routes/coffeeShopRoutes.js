@@ -18,6 +18,7 @@ router.get("/", async (req, res) => {
   try {
     const coffeeShops = await CoffeeShop.find();
     res.json(coffeeShops);
+    console.log("sachin")
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -40,6 +41,7 @@ router.get("/featured/top", async (req, res) => {
       .sort({ rating: -1 })
       .limit(5);
     res.json(topCoffeeShops);
+    console.log("sachin");
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

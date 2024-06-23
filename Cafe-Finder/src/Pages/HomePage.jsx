@@ -1,7 +1,7 @@
 // src/pages/HomePage.js
 import React from 'react';
-import CoffeeShopList from './components/CoffeeShopList';
-import TopFeatured from './components/TopFeatured';
+import CoffeeShopList from '../Components/CoffeeShopList';
+import TopFeatured from '../Components/TopFeatured';
 
 const HomePage = () => {
   return (

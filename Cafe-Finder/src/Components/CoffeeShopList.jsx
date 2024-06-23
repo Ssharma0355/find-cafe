@@ -7,7 +7,7 @@ const CoffeeShopList = () => {
   const [coffeeShops, setCoffeeShops] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/coffeeShops')
+    axios.get('http://localhost:5001/api/coffeeShops')
       .then(res => setCoffeeShops(res.data))
       .catch(err => console.error(err));
   }, []);

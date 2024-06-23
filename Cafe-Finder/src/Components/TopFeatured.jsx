@@ -1,28 +1,31 @@
-// src/components/TopFeatured.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './TopFeatured.css';
 
 const TopFeatured = () => {
     const [topCoffeeShops, setTopCoffeeShops] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/coffeeShops/featured/top')
+        axios.get('http://localhost:5001/api/coffeeShops/featured/top')
             .then(res => setTopCoffeeShops(res.data))
             .catch(err => console.error(err));
     }, []);
 
     return (
-        <div>
-            <h2>Top Featured Coffee Shops</h2>
-            <ul>
+        <div className="featured-container">
+            <h2>Featured Coffee Shops</h2>
+            <div className="scrollable-list">
                 {topCoffeeShops.map(shop => (
-                    <li key={shop._id}>
-                        <p>{shop.name}</p>
-                        <p>{shop.address}</p>
-                        <p>Rating: {shop.rating}</p>
-                    </li>
+                    <div className="coffee-shop-card" key={shop._id}>
+                        <img src={shop.image} alt={shop.name} className="coffee-shop-image" />
+                        <div className="coffee-shop-info">
+                            <h3>{shop.name}</h3>
+                            <p>{shop.address}</p>
+                            <div className="rating">Rating: {shop.rating}</div>
+                        </div>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };

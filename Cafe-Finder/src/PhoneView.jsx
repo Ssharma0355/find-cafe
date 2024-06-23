@@ -3,6 +3,7 @@ import './PhoneView.css';
 import NavBar from './Components/NavBar';
 import ProfileBox from './Components/ProfileBox';
 import SearchComponent from './Components/SearchComponent';
+import TopFeatured from './Components/TopFeatured';
 const PhoneView = () => {
   return (
     <div className="phone-view">
@@ -14,6 +15,9 @@ const PhoneView = () => {
       </div>
       <div className="search">
       <SearchComponent />
+      </div>
+      <div>
+        <TopFeatured />
       </div>
       <div className='nav'>
         <NavBar />

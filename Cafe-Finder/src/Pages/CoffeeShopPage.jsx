@@ -1,6 +1,6 @@
 // src/pages/CoffeeShopPage.js
 import React from 'react';
-import CoffeeShopDetail from './components/CoffeeShopDetail';
+import CoffeeShopDetail from '../Components/CoffeeShopDetail';
 
 const CoffeeShopPage = () => {
   return (
