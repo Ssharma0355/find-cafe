@@ -1,0 +1,63 @@
+/* Container for coffee shop details */
+.coffee-shop-details {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Back button style */
+.back-button {
+    text-decoration: none;
+    color: #007BFF;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+/* Tabs for menu categories */
+.menu-tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+/* Style for each tab */
+.tab {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+/* Active tab style */
+.tab.active {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* List of menu items */
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Each menu item */
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu item name */
+.menu-item-name {
+    font-weight: bold;
+}
+
+/* Menu item price */
+.menu-item-price {
+    color: #333;
+}

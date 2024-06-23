@@ -1,35 +1,59 @@
-// src/components/CoffeeShopDetail.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import './CoffeeShopDetails.css';
 
-const CoffeeShopDetail = () => {
+const CoffeeShopDetails = () => {
   const { id } = useParams();
-  const [coffeeShop, setCoffeeShop] = useState(null);
+  const [menu, setMenu] = useState({ coffee: [], drinks: [], food: [] });
+  const [activeTab, setActiveTab] = useState('coffee');
 
   useEffect(() => {
-    axios.get(`http://localhost:5001/api/coffeeShops/${id}`)
-      .then(res => setCoffeeShop(res.data))
+    axios.get(`http://localhost:5001/api/coffeeShops/${id}/menu`)
+      .then(res => setMenu(res.data))
       .catch(err => console.error(err));
   }, [id]);
 
-  if (!coffeeShop) return <div>Loading...</div>;
+  const renderMenuItems = (items) => (
+    items.map(item => (
+      <div key={item.name} className="menu-item">
+        <p className="menu-item-name">{item.name}</p>
+        <p className="menu-item-price">${item.price}</p>
+      </div>
+    ))
+  );
 
   return (
-    <div>
-      <h1>{coffeeShop.name}</h1>
-      <p>{coffeeShop.address}</p>
-      <p>Distance: {coffeeShop.distance} miles</p>
-      <p>Rating: {coffeeShop.rating}</p>
-      <p>Review: {coffeeShop.review}</p>
-      <h3>Menu:</h3>
-      <ul>
-        {coffeeShop.menu.map((item, index) => (
-          <li key={index}>{item.item} - ${item.price}</li>
-        ))}
-      </ul>
+    <div className="coffee-shop-details">
+      <Link to="/" className="back-button">Back</Link>
+      <h2>Coffee Shop Menu</h2>
+      <div className="menu-tabs">
+        <button
+          className={`tab ${activeTab === 'coffee' ? 'active' : ''}`}
+          onClick={() => setActiveTab('coffee')}
+        >
+          Coffee
+        </button>
+        <button
+          className={`tab ${activeTab === 'drinks' ? 'active' : ''}`}
+          onClick={() => setActiveTab('drinks')}
+        >
+          Drinks
+        </button>
+        <button
+          className={`tab ${activeTab === 'food' ? 'active' : ''}`}
+          onClick={() => setActiveTab('food')}
+        >
+          Food
+        </button>
+      </div>
+      <div className="menu-list">
+        {activeTab === 'coffee' && renderMenuItems(menu.coffee)}
+        {activeTab === 'drinks' && renderMenuItems(menu.drinks)}
+        {activeTab === 'food' && renderMenuItems(menu.food)}
+      </div>
     </div>
   );
 };
 
-export default CoffeeShopDetail;
+export default CoffeeShopDetails;

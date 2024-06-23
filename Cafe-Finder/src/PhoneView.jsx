@@ -16,7 +16,7 @@ const PhoneView = () => {
       <div className="search">
       <SearchComponent />
       </div>
-      <div>
+      <div className='featured'>
         <TopFeatured />
       </div>
       <div className='nav'>
