@@ -1,0 +1,20 @@
+.phone-view {
+    width: 416.1px;
+    height: 90vh;
+    background-color: #FCFEFF;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    box-shadow: 0px 4px 60px 0px #A8A5A633;
+}
+.nav{
+    margin-top: 50vh;
+}
+.head{
+    font-family: Arial;
+    font-size: 1rem;
+    text-align: left;
+    color: #013B40;
+    font-weight: 200;
+    margin-left: 2rem;
+    margin-top: -3rem;
+}
